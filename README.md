@@ -28,4 +28,4 @@ SnapListView(
 
 ## Example
 
-<img src="./img.png" >
+<img src="./img.png" height = "400" >
