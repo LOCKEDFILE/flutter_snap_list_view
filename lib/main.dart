@@ -39,7 +39,7 @@ class _ItemListState extends State<ItemList> {
       appBar: AppBar(title: Text('Snap List View!')),
       body: SnapListView(
         height: 180.0,
-        width: 235.0,
+        width: 135.0,
         children: children,
       ),
     );
