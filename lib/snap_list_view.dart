@@ -102,29 +102,32 @@ class _SnapListViewState extends State<SnapListView> {
       color: listBackColor,
       child: Listener(
         onPointerUp: listUpEvent,
-        child: ListView(
-          controller: scrollController,
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: firstLastSpace),
-              child: Row(
-                children: children
-                    .map(
-                      (child) => Container(
-                        padding: EdgeInsets.fromLTRB(
-                            0, topBottomMargin, dividerWidth, topBottomMargin),
-                        child: Container(
-                          height: height,
-                          width: width,
-                          child: child,
+        child: NotificationListener(
+          onNotification: (overScroll) => overScroll.disallowGlow(),
+          child: ListView(
+            controller: scrollController,
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: firstLastSpace),
+                child: Row(
+                  children: children
+                      .map(
+                        (child) => Container(
+                          padding: EdgeInsets.fromLTRB(0, topBottomMargin,
+                              dividerWidth, topBottomMargin),
+                          child: Container(
+                            height: height,
+                            width: width,
+                            child: child,
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
