@@ -103,7 +103,10 @@ class _SnapListViewState extends State<SnapListView> {
       child: Listener(
         onPointerUp: listUpEvent,
         child: NotificationListener(
-          onNotification: (overScroll) => overScroll.disallowGlow(),
+          onNotification: (OverscrollIndicatorNotification overscroll) {
+            overscroll.disallowGlow();
+            return true;
+          },
           child: ListView(
             controller: scrollController,
             scrollDirection: Axis.horizontal,
